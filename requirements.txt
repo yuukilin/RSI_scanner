@@ -1,6 +1,6 @@
 yfinance
 pandas
-https://github.com/twopirllc/pandas-ta/archive/development.zip
+https://github.com/twopirllc/pandas-ta/archive/refs/heads/development.zip
 twstock
 lxml
 gspread
