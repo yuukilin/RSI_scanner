@@ -1,8 +1,8 @@
 yfinance
-pandas
-numpy<2.0.0
-pandas-ta
+numpy==1.24.3
+pandas==1.5.3
 twstock
 lxml
 gspread
 oauth2client
+pandas-ta
