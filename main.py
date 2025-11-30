@@ -17,7 +17,7 @@ SHEET_NAME = 'rsi_scanner'  # 我們存入這個分頁
 
 # 篩選門檻
 MIN_PRICE = 10
-MIN_VOLUME_SHEETS = 500
+MIN_VOLUME_SHEETS = 3000
 
 # 建立自動抓鑰匙的路徑
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
