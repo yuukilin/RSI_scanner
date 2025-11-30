@@ -2,38 +2,34 @@ name: Daily Stock Scan
 
 on:
   schedule:
-    # 設定時間：UTC 時間早上 7:30 (等於台灣時間下午 3:30)
-    # 格式：分 時 日 月 星期 (1-5 是週一到週五)
     - cron: '30 7 * * 1-5'
-  workflow_dispatch: # 讓你可以手動按按鈕測試
+  workflow_dispatch:
 
 jobs:
   run-scanner:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. 下載你的程式碼
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # 2. 設定 Python 環境
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
-    # 3. 安裝套件
+    # 👇 這裡加了一行：強制升級安裝工具，避免下載失敗
+    - name: Upgrade pip
+      run: python -m pip install --upgrade pip
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
 
-    # 4. 【關鍵】把秘密鑰匙做成檔案
-    # 我們把剛剛存在 Secret 的內容，寫入變成 service_account.json
     - name: Create JSON key file
       run: |
         echo '${{ secrets.GCP_JSON }}' > service_account.json
 
-    # 5. 執行主程式
     - name: Run Python Script
       run: |
         python main.py
