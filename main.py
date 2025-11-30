@@ -166,7 +166,7 @@ def check_stock(ticker):
             if stock_code in twstock.codes:
                 stock_name = twstock.codes[stock_code].name
             
-            return {"ticker": ticker, "name": stock_name}
+            return {"ticker": stock_code, "name": stock_name}
         return None
     except Exception:
         return None
