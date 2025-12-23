@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.10'
 
     # 👇 這裡加了一行：強制升級安裝工具，避免下載失敗
     - name: Upgrade pip
